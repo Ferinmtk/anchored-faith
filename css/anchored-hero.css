@@ -1,0 +1,573 @@
+/* ============================================================
+   AN ANCHORED FAITH — Hero Slider Styles
+   Bundled inside BLIKSEM Simple Slider plugin
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap');
+
+/* ── CSS VARIABLES ─────────────────────────────────── */
+:root {
+  --af-cream:       #FAF8F4;
+  --af-cream2:      #F3EFE7;
+  --af-ink:         #1A1714;
+  --af-stone:       #7C746C;
+  --af-gold:        #B8975A;
+  --af-gold-light:  #E2CFA0;
+  --af-gold-pale:   #F5EDD8;
+  --af-navy:        #1B3356;
+  --af-border:      #E2D9CC;
+  --af-white:       #FFFFFF;
+}
+
+/* ── SCROLL REVEAL ANIMATIONS ──────────────────────── */
+.af-reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.85s cubic-bezier(.16,1,.3,1),
+              transform 0.85s cubic-bezier(.16,1,.3,1);
+}
+.af-reveal.af-visible { opacity: 1; transform: translateY(0); }
+.af-reveal-left {
+  opacity: 0; transform: translateX(-36px);
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1),
+              transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+.af-reveal-left.af-visible  { opacity: 1; transform: translateX(0); }
+.af-reveal-right {
+  opacity: 0; transform: translateX(36px);
+  transition: opacity 0.9s cubic-bezier(.16,1,.3,1),
+              transform 0.9s cubic-bezier(.16,1,.3,1);
+}
+.af-reveal-right.af-visible { opacity: 1; transform: translateX(0); }
+.af-d1 { transition-delay: 0.10s; }
+.af-d2 { transition-delay: 0.22s; }
+.af-d3 { transition-delay: 0.36s; }
+.af-d4 { transition-delay: 0.50s; }
+
+/* ── SCROLL PROGRESS BAR ───────────────────────────── */
+#af-progress {
+  position: fixed; top: 0; left: 0;
+  height: 2px; width: 0%;
+  background: var(--af-gold);
+  z-index: 9999;
+  transition: width 0.1s linear;
+}
+
+/* ── HERO WRAPPER ──────────────────────────────────── */
+.af-hero-wrap { position: relative; }
+
+/* ── bxSLIDER OVERRIDES ────────────────────────────── */
+.af-hero-wrap .bx-wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.af-hero-wrap .bx-wrapper .bx-viewport {
+  height: 100vh !important;
+  min-height: 560px;
+}
+.af-hero-wrap .bxslider {
+  margin: 0; padding: 0; list-style: none;
+}
+.af-hero-wrap .bxslider li {
+  position: relative;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+/* ── KEN BURNS SLIDE BG ────────────────────────────── */
+.af-slide-bg {
+  position: absolute; inset: 0;
+  background-size: cover;
+  background-position: center;
+  animation: af-kenburns 14s ease-in-out infinite alternate;
+  will-change: transform;
+}
+@keyframes af-kenburns {
+  0%   { transform: scale(1)    translate(0, 0); }
+  100% { transform: scale(1.08) translate(-1%, -1%); }
+}
+
+/* ── SLIDE OVERLAY ─────────────────────────────────── */
+.af-slide-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(20,16,14,0.78) 0%,
+    rgba(20,16,14,0.42) 50%,
+    rgba(20,16,14,0.12) 100%
+  );
+}
+
+/* ── SLIDE CONTENT ─────────────────────────────────── */
+.af-slide-content {
+  position: absolute;
+  bottom: 14%; left: 9%;
+  max-width: 620px;
+  z-index: 10;
+  animation: af-content-in 1.1s cubic-bezier(.16,1,.3,1) both;
+}
+@keyframes af-content-in {
+  from { opacity: 0; transform: translateY(32px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.af-slide-eyebrow {
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--af-gold-light);
+  margin-bottom: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.af-slide-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px; height: 1px;
+  background: var(--af-gold);
+  flex-shrink: 0;
+}
+
+.af-slide-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(46px, 6.5vw, 84px);
+  font-weight: 300;
+  line-height: 1.03;
+  color: #fff;
+  margin-bottom: 22px;
+}
+.af-slide-title em {
+  font-style: italic;
+  color: var(--af-gold-light);
+}
+
+.af-slide-desc {
+  font-family: 'Jost', sans-serif;
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.78;
+  margin-bottom: 36px;
+  font-weight: 300;
+  max-width: 440px;
+}
+
+/* ── SLIDE BUTTONS ─────────────────────────────────── */
+.af-slide-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+
+.af-btn-gold {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--af-gold); color: #fff;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 34px;
+  text-decoration: none; font-weight: 500;
+  border: 1px solid var(--af-gold);
+  transition: background 0.3s, color 0.3s;
+}
+.af-btn-gold:hover {
+  background: transparent;
+  color: var(--af-gold-light);
+  text-decoration: none;
+}
+
+.af-btn-outline {
+  display: inline-flex; align-items: center; gap: 10px;
+  border: 1px solid rgba(255,255,255,0.35);
+  color: rgba(255,255,255,0.82);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  text-decoration: none; font-weight: 400;
+  transition: border-color 0.3s, color 0.3s;
+}
+.af-btn-outline:hover {
+  border-color: rgba(255,255,255,0.85);
+  color: #fff;
+  text-decoration: none;
+}
+
+/* ── bxSLIDER PAGER (dots) ─────────────────────────── */
+.af-hero-wrap .bx-wrapper .bx-controls { pointer-events: none; }
+
+.af-hero-wrap .bx-wrapper .bx-pager {
+  position: absolute;
+  bottom: 44px; left: 9%;
+  text-align: left; padding: 0;
+  pointer-events: all;
+  font-size: 0; line-height: 0;
+}
+.af-hero-wrap .bx-wrapper .bx-pager.bx-default-pager a {
+  background: rgba(255,255,255,0.28);
+  width: 22px; height: 3px;
+  border-radius: 2px;
+  margin: 0 5px 0 0;
+  display: inline-block;
+  text-indent: -9999px;
+  transition: background 0.35s, width 0.35s;
+}
+.af-hero-wrap .bx-wrapper .bx-pager.bx-default-pager a.active,
+.af-hero-wrap .bx-wrapper .bx-pager.bx-default-pager a:hover {
+  background: var(--af-gold);
+  width: 48px;
+}
+
+/* ── bxSLIDER ARROWS ───────────────────────────────── */
+.af-hero-wrap .bx-wrapper .bx-controls-direction {
+  position: absolute;
+  bottom: 32px; right: 9%;
+  pointer-events: all;
+}
+.af-hero-wrap .bx-wrapper .bx-controls-direction a {
+  position: static;
+  width: 48px; height: 48px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.85);
+  text-indent: 0;
+  font-family: 'Jost', sans-serif;
+  font-size: 20px; font-weight: 300;
+  margin-left: 10px;
+  text-decoration: none;
+  background: transparent !important;
+  transition: background 0.3s, border-color 0.3s;
+  float: none;
+}
+.af-hero-wrap .bx-wrapper .bx-controls-direction a:hover {
+  background: rgba(255,255,255,0.12) !important;
+  border-color: rgba(255,255,255,0.7);
+}
+.af-hero-wrap .bx-wrapper .bx-prev::before { content: '←'; }
+.af-hero-wrap .bx-wrapper .bx-next::before { content: '→'; }
+.af-hero-wrap .bx-wrapper .bx-prev,
+.af-hero-wrap .bx-wrapper .bx-next { background: none !important; }
+
+/* ── SLIDE COUNTER ─────────────────────────────────── */
+.af-slide-counter {
+  position: absolute;
+  top: 50%; right: 48px;
+  transform: translateY(-50%);
+  z-index: 50;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 12px;
+  color: rgba(255,255,255,0.4);
+  font-family: 'Jost', sans-serif;
+  font-size: 11px; letter-spacing: 0.14em;
+  writing-mode: vertical-lr;
+  pointer-events: none;
+}
+.af-slide-counter .af-sc-line {
+  width: 1px; height: 48px;
+  background: rgba(255,255,255,0.15);
+  display: block;
+}
+
+/* ── SCRIPTURE BAND ────────────────────────────────── */
+.af-scripture {
+  background: var(--af-navy);
+  padding: 36px 56px;
+  text-align: center;
+  overflow: hidden;
+}
+.af-scripture blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.55;
+}
+.af-scripture cite {
+  display: block;
+  font-family: 'Jost', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--af-gold);
+  margin-top: 10px;
+  font-style: normal;
+}
+
+/* ── MARQUEE TICKER ────────────────────────────────── */
+.af-marquee-wrap {
+  background: var(--af-gold-pale);
+  padding: 18px 0;
+  overflow: hidden;
+  border-top: 1px solid var(--af-gold-light);
+  border-bottom: 1px solid var(--af-gold-light);
+}
+.af-marquee-track {
+  display: flex; gap: 64px;
+  white-space: nowrap;
+  animation: af-marquee 30s linear infinite;
+  width: max-content;
+}
+.af-marquee-wrap:hover .af-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes af-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.af-marquee-item {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--af-stone);
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center; gap: 20px;
+}
+.af-marquee-item::after {
+  content: '✦';
+  font-size: 10px;
+  color: var(--af-gold);
+  font-style: normal;
+}
+
+/* ── REMOVE WHITE GAP / ELEMENTOR PADDING ──────────── */
+.elementor-widget-shortcode,
+.elementor-widget-shortcode .elementor-widget-container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove Elementor section padding around the hero */
+.elementor-section:has(.af-hero-wrap),
+.elementor-container:has(.af-hero-wrap),
+.e-con:has(.af-hero-wrap),
+.e-con-inner:has(.af-hero-wrap) {
+  padding: 0 !important;
+  margin: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Also target by proximity — any section directly wrapping bxslider */
+.af-hero-wrap,
+.af-hero-wrap .bx-wrapper,
+.af-hero-wrap .bx-viewport {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* Full viewport height */
+.af-hero-wrap .bx-wrapper .bx-viewport,
+.af-hero-wrap .bxslider li {
+  height: 100vh !important;
+  min-height: 580px !important;
+}
+
+/* ── FORCE FULL WIDTH — kill all Elementor gaps ────── */
+.elementor-widget-shortcode:has(.af-hero-wrap),
+.elementor-widget-shortcode:has(.af-hero-wrap) .elementor-widget-container,
+.elementor-element:has(.af-hero-wrap),
+.elementor-section:has(.af-hero-wrap),
+.elementor-section:has(.af-hero-wrap) > .elementor-container,
+.elementor-section:has(.af-hero-wrap) > .elementor-container > .elementor-column,
+.elementor-section:has(.af-hero-wrap) > .elementor-container > .elementor-column > .elementor-widget-wrap,
+.e-con:has(.af-hero-wrap),
+.e-con:has(.af-hero-wrap) > .e-con-inner {
+  padding-left:  0 !important;
+  padding-right: 0 !important;
+  margin-left:   0 !important;
+  margin-right:  0 !important;
+  max-width:     100% !important;
+  width:         100% !important;
+}
+
+/* Nuclear option — stretch the hero out of any container */
+.af-hero-wrap {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left:  -50vw !important;
+  margin-right: -50vw !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+}
+
+/* ── SHARED SECTION STYLES ─────────────────────────── */
+.af-eyebrow {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px; letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--af-gold); font-weight: 500;
+    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 12px;
+}
+.af-eyebrow::before {
+    content: ''; display: block;
+    width: 24px; height: 1px;
+    background: var(--af-gold); flex-shrink: 0;
+}
+.af-section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(28px, 4vw, 48px);
+    font-weight: 300; line-height: 1.1;
+    color: var(--af-ink); margin-bottom: 12px;
+}
+.af-section-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px; color: var(--af-stone);
+    line-height: 1.7; font-weight: 300;
+    max-width: 520px; margin-bottom: 0;
+}
+
+/* ── PATHWAYS ──────────────────────────────────────── */
+.af-pathways {
+    padding: 80px 0;
+    background: var(--af-cream);
+}
+.af-pathways-header {
+    padding: 0 40px;
+    margin-bottom: 48px;
+}
+.af-pathways-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--af-border);
+}
+.af-pathway-card {
+    background: var(--af-cream);
+    overflow: hidden;
+}
+.af-card-img-wrap {
+    display: block;
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+    text-decoration: none;
+}
+.af-card-img {
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(.25,.46,.45,.94);
+}
+.af-pathway-card:hover .af-card-img {
+    transform: scale(1.06);
+}
+.af-card-btn {
+    position: absolute;
+    bottom: 20px; left: 20px;
+    background: var(--af-navy);
+    color: #fff;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px; font-weight: 500;
+    letter-spacing: 0.08em;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+.af-pathway-card:hover .af-card-btn {
+    background: var(--af-gold);
+}
+.af-card-body {
+    padding: 24px 24px 32px;
+    border-top: 1px solid var(--af-border);
+    transition: border-color 0.3s;
+}
+.af-pathway-card:hover .af-card-body {
+    border-color: var(--af-gold);
+}
+.af-card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; font-weight: 400;
+    line-height: 1.25; margin-bottom: 8px;
+    color: var(--af-ink);
+}
+.af-card-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px; color: var(--af-stone);
+    line-height: 1.65; font-weight: 300;
+    margin: 0;
+}
+
+/* ── VIDEOS ────────────────────────────────────────── */
+.af-videos {
+    padding: 80px 40px;
+    background: #fff;
+}
+.af-videos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 48px;
+}
+.af-video-card {
+    border: 1px solid var(--af-border);
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.4s;
+}
+.af-video-card:hover {
+    border-color: var(--af-gold);
+    transform: translateY(-4px);
+}
+.af-video-thumb {
+    position: relative;
+    padding-bottom: 56.25%;
+    background: #000;
+}
+.af-video-thumb iframe {
+    position: absolute;
+    inset: 0; width: 100%; height: 100%;
+    border: none;
+}
+.af-video-meta {
+    padding: 20px 24px 26px;
+}
+.af-video-channel {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px; letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--af-gold); font-weight: 600;
+    margin-bottom: 6px;
+}
+.af-video-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px; font-weight: 400;
+    line-height: 1.3; color: var(--af-ink);
+    margin: 0;
+}
+
+/* ── CENTERED CALLOUT ──────────────────────────────── */
+.af-centered {
+    background: var(--af-ink);
+    padding: 96px 40px;
+    text-align: center;
+}
+.af-centered-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 300; color: #fff;
+    margin-bottom: 20px; line-height: 1.1;
+}
+.af-centered-desc {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px; color: rgba(255,255,255,0.6);
+    line-height: 1.75; font-weight: 300;
+    max-width: 560px; margin: 0 auto;
+}
+
+/* ── RESPONSIVE ────────────────────────────────────── */
+@media (max-width: 768px) {
+    .af-pathways-grid { grid-template-columns: 1fr; }
+    .af-videos-grid   { grid-template-columns: 1fr; }
+    .af-pathways-header,
+    .af-videos,
+    .af-centered      { padding-left: 20px; padding-right: 20px; }
+}
