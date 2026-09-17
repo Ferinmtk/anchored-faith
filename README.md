@@ -1,6 +1,6 @@
 <div align="center">
 
-# ⚓ An Anchored Faith
+# An Anchored Faith
 
 **A custom WordPress plugin that builds the whole [An Anchored Faith](https://ananchoredfaith.com) site from shortcodes.**
 
@@ -9,30 +9,30 @@
 ![PHP](https://img.shields.io/badge/PHP-plugin-777bb4?logo=php&logoColor=white)
 ![License](https://img.shields.io/badge/license-GPL--2.0--or--later-blue)
 
-[Live site](https://ananchoredfaith.com) · [YouTube channel](https://www.youtube.com/@ananchoredfaith) · [Shortcodes](#-shortcodes) · [Installation](#-installation)
+[Live site](https://ananchoredfaith.com) · [YouTube channel](https://www.youtube.com/@ananchoredfaith) · [Shortcodes](#shortcodes) · [Installation](#installation)
 
 </div>
 
 ---
 
-## ✨ Overview
+## Overview
 
 An Anchored Faith is a faith and gospel-study site. This plugin supplies the homepage and the About, General Conference, Kids and Podcast pages. Each section is a shortcode, so a page is built by stacking shortcodes in the WordPress editor. No page builder is needed.
 
-## 🧩 Features
+## Features
 
-| | |
+| Feature | Description |
 |---|---|
-| 🎞️ **Hero slider** | Animated bxSlider hero with an announcement bar and a scrolling marquee ticker |
-| 🧭 **Homepage sections** | Faith pathways, video gallery, resources, featured scripture |
-| 🏛️ **General Conference** | Session schedule, how to watch, how to prepare |
-| 🧒 **Kids & families** | Age groups, activities, featured content, resources, a note for parents |
-| 🎙️ **Podcast** | Show intro, episode list, where to listen |
-| 🔊 **Listen player** | Reads a post aloud using the browser's built-in text-to-speech (Chrome and Edge) |
-| 🦶 **Site footer** | Added to every page automatically |
-| ⚡ **Performance** | Scripts load deferred in the footer, so they don't block rendering; animations run on scroll |
+| **Hero slider** | Animated bxSlider hero with an announcement bar and a scrolling marquee ticker |
+| **Homepage sections** | Faith pathways, video gallery, resources, featured scripture |
+| **General Conference** | Session schedule, how to watch, how to prepare |
+| **Kids & families** | Age groups, activities, featured content, resources, a note for parents |
+| **Podcast** | Show intro, episode list, where to listen |
+| **Listen player** | Reads a post aloud using the browser's built-in text-to-speech (Chrome and Edge) |
+| **Site footer** | Added to every page automatically |
+| **Performance** | Scripts load deferred in the footer, so they don't block rendering; animations run on scroll |
 
-## 📦 Installation
+## Installation
 
 1. Get the plugin zip. It must unzip to a folder named **`anchored-faith-slider/`**.
 2. In WordPress, go to **Plugins → Add New → Upload Plugin**, choose the zip, and click **Activate**.
@@ -43,11 +43,11 @@ An Anchored Faith is a faith and gospel-study site. This plugin supplies the hom
 
 **Requirements:** WordPress 5.0+ and jQuery (loaded by most themes).
 
-## 🔖 Shortcodes
+## Shortcodes
 
 None of the shortcodes take attributes; add them as written. Stack them in order to build each page.
 
-### 🏠 Homepage
+### Homepage
 
 ```text
 [af_hero_slider]
@@ -59,7 +59,7 @@ None of the shortcodes take attributes; add them as written. Stack them in order
 [af_centered]
 ```
 
-### 👋 About
+### About
 
 ```text
 [af_about_hero]
@@ -70,7 +70,7 @@ None of the shortcodes take attributes; add them as written. Stack them in order
 [af_about_cta]
 ```
 
-### 🏛️ General Conference
+### General Conference
 
 ```text
 [af_conf_hero]
@@ -80,7 +80,7 @@ None of the shortcodes take attributes; add them as written. Stack them in order
 [af_conf_prepare]
 ```
 
-### 🧒 Kids
+### Kids
 
 ```text
 [af_kids_hero]            [af_kids_hero_v2]
@@ -96,7 +96,7 @@ None of the shortcodes take attributes; add them as written. Stack them in order
 > [!NOTE]
 > Sections with a `_v2` version come in two designs. Use one of each pair, not both.
 
-### 🎙️ Podcast
+### Podcast
 
 ```text
 [af_pod_hero]
@@ -105,14 +105,14 @@ None of the shortcodes take attributes; add them as written. Stack them in order
 [af_pod_where]
 ```
 
-### 📝 Posts and site-wide
+### Posts and site-wide
 
 | Shortcode | What it does |
 |---|---|
 | `[af_listen]` | Adds a Listen button that reads the post aloud |
 | `[af_footer]` | Site footer. **Already added to every page automatically**, so adding it to a page shows it twice. |
 
-## 🗂️ Project structure
+## Project structure
 
 ```text
 anchored-faith-slider/
@@ -129,14 +129,14 @@ anchored-faith-slider/
 └── Example.html
 ```
 
-## 🛠️ Built with
+## Built with
 
 PHP · WordPress Shortcode API · jQuery · bxSlider · CSS
 
-## 👤 Author
+## Author
 
 **Ferrin Mutuku** · [github.com/Ferinmtk](https://github.com/Ferinmtk)
 
-## 📄 License
+## License
 
 GPL v2 or later. bxSlider is MIT-licensed.
